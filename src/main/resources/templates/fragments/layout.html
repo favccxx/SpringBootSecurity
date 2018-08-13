@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link rel="stylesheet" th:href="@{../../staradmin/vendors/iconfonts/mdi/css/materialdesignicons.min.css}">
+<link rel="stylesheet" th:href="@{../../staradmin/vendors/iconfonts/puse-icons-feather/feather.css}">
+<link rel="stylesheet" th:href="@{../../staradmin/vendors/css/vendor.bundle.base.css}">
+<link rel="stylesheet" th:href="@{../../staradmin/vendors/css/vendor.bundle.addons.css}">
+<link rel="stylesheet" th:href="@{../../staradmin/css/style.css}">
+<link rel="stylesheet" th:href="@{../../plugins/datatables/datatables.min.css}">
+
+<link rel="shortcut icon" th:href="@{../../staradmin/images/favicon.png}" />
+
+
+	<script th:src="@{../../js/jquery-3.3.1.min.js}"></script>
+<!-- <link rel="stylesheet" type="text/css" th:href="@{../../plugins/bootstrap/css/bootstrap.min.css}" /> -->
+<!-- <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" /> -->
+
+
+<!--     <link rel="stylesheet" type="text/css" th:href="@{/plugins/datatable/datatables.css}" /> -->
+
+<!-- <script th:src="@{../../js/jquery-3.3.1.min.js}"></script> -->
+<!-- <script th:src="@{../../plugins/bootstrap/js/bootstrap.min.js}"></script> -->
+<!-- <script th:src="@{../../plugins/datatables/datatables.js}"></script> -->
+
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">机灵授权</title>
+</head>
+<body>
+	<th:block th:replace="fragments/header :: header" />
+	<div class="container-fluid page-body-wrapper">
+
+		<th:block th:replace="fragments/sidebar :: sidebar" />
+
+		<th:block layout:fragment="content" />
+
+	</div>
+	<div class="container"></div>
+	<th:block th:replace="fragments/footer :: footer" />
+	
+	
+	<script th:src="@{../../staradmin/vendors/js/vendor.bundle.base.js}"></script>
+	<script th:src="@{../../staradmin/vendors/js/vendor.bundle.addons.js}"></script>
+	<script th:src="@{../../staradmin/js/off-canvas.js}"></script>
+	<script th:src="@{../../staradmin/js/hoverable-collapse.js}"></script>
+	<script th:src="@{../../staradmin/js/misc.js}"></script>
+	<script th:src="@{../../staradmin/js/off-canvas.js}"></script>
+	
+
+<!-- 	<script th:src="@{../../plugins/bootstrap/js/bootstrap.min.js}"></script> -->
+<!-- 	<script th:src="@{../../plugins/datatables/datatables.js}"></script> -->
+</body>
+</html>

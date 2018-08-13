@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<!-- <head> -->
+<!-- <title>角色列表</title> -->
+
+<!-- </head> -->
+<body>
+	<div class="table-responsive">
+		<table id="authrizeTable" class="table  table-hover table-striped">
+			<thead>
+				<tr>
+					<th>选择</th>
+					<th>#</th>
+					<th>权限Id</th>
+					<th>权限代码</th>
+					<th>权限名称</th>
+					<th>权限类型</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+
+
+
+
+	<script type="text/javascript" th:inline="javascript">
+
+		$(document).ready(function() {
+			var tbl = $("#authrizeTable").DataTable({ //对表格控件进行初始化
+				ordering : false, // 关闭排序
+				searching : true, // 关闭插件自带的搜索，我们会自定义搜索
+				serverSide : true, //服务器模式
+				Processing : true, //是否显示“处理中...”
+				scrollX : true, //水平方向的滚动条
+				autoWidth : true, // 自动宽度
+				lengthMenu : [ 10, 25, 50 ], // 分页器的页数
+				bRetrieve : true,
+				bAutoWidth : false,
+				ajax : {
+					//指定数据源
+					url : "../resource/pageRoleResources",
+					dataSrc : "data",
+					// 这里向后端传递查询参数
+					data : function(d) {
+						// 							d.account = $("#account").val().trim();
+						// 							d.logtype = $("#logtype").val().trim();
+						// 							d.logdate = $("#logdate").val().trim();
+						// 							d.starttime = $("#starttime").val().trim();
+						// 							d.endtime = $("#endtime").val().trim();
+					}
+				},
+				// 与<table>标签中的<th>标签内的字段对应
+				columns : [ {
+					data : "resourceId",
+					"render" : function(data, type, full, meta) {
+						return "<input type='checkbox' name='chkResource' class='form-check-input' value='" + data + "'>";
+					}
+				}, {
+					data : null,
+					"render" : function(data, type, full, meta) {
+						return meta.row + 1 + meta.settings._iDisplayStart;
+					}
+				}, {
+					data : "resourceId"
+				}, {
+					data : "resourceCode"
+				}, {
+					data : "resourceName"
+				}, {
+					data : "resourceType",
+					"render" : function(data, type, full, meta){
+						if(data == 'MENU'){
+							return '菜单';
+						}else{
+							return '按钮';
+						}
+// 						return "<button class='btn btn-outline-primary' onclick='roleAuth("+ data + ")'>授权</button>";
+					}
+				} ],
+				"columnDefs" : [ {
+					"targets" : [ 2 ],
+					"visible" : false,
+					"searchable" : false
+				} ]
+			});
+		});		
+
+		function startAuthorize(roleId) {
+			var selectedMenuIds = "";
+			var removeMenuIds = "";
+			$("input[name='chkResource']:checkbox:checked").each(function(){
+				selectedMenuIds += $(this).val()+",";
+			})
+			
+			$("input[name='chkResource']:not(:checked)").each(function() {  
+				removeMenuIds += $(this).val()+",";
+			}); 
+			
+			var postData = {
+				roleId : roleId,
+				selectedMenuIds : selectedMenuIds,
+				removeMenuIds : removeMenuIds
+			}
+			
+			console.log(["postData", postData]);
+		
+		
+		$.ajax({
+			type : "POST",
+			contentType : "application/json;charset=utf-8",
+			url : "../role/updateAuthorize",
+			data : JSON.stringify(postData),
+			dataType : 'JSON',
+			timeout : 100000,
+            success: function (res) {
+            	alert("success");
+            },
+			error : function(message) {
+
+			}
+	    });
+			
+			
+			alert(roleId);
+// 			var postData = {
+// 				userId : $("#userId").val(),
+// 				username : $("#username").val(),
+// 				password : $("#password").val()
+// 			};
+
+// 			$.ajax({
+// 				type : "POST",
+// 				contentType : "application/json;charset=utf-8",
+// 				url : "../user/saveUser",
+// 				data : JSON.stringify(postData),
+// 				dataType : 'JSON',
+// 				timeout : 100000,
+// 				success : function(res) {
+// 					console.log([ "result", res ]);
+// 					$('#editUserModal').modal('hide');
+// 				},
+// 				error : function(message) {
+
+// 				}
+// 			});
+		}
+	</script>
+
+
+
+	</div>
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<th:block th:fragment="sidebar">
+	
+	<nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">          
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#dashboard-dropdown" aria-expanded="false" aria-controls="dashboard-dropdown"><i class="menu-icon mdi mdi-television"></i><span class="menu-title">Dashboard</span><i class="menu-arrow"></i></a>
+            <div class="collapse" id="dashboard-dropdown">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="index.html">Dashboard 1</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/dashboards/dashboard-2.html">Dashboard 2</a></li>
+              </ul>
+            </div>
+          </li>        
+        
+          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/popups.html"><i class="menu-icon mdi mdi-shield-outline"></i><span class="menu-title">Popups</span> </a> </li>
+          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/notifications.html"><i class="menu-icon mdi mdi-flag-outline"></i><span class="menu-title">Notifications</span> </a> </li>
+          
+         
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"><i class="menu-icon mdi mdi-cube-outline"></i><span class="menu-title">系统管理</span><i class="menu-arrow"></i></a>
+            <div class="collapse" id="general-pages">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="../user/list"> 用户管理 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../group/list"> 用户组管理 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../role/list"> 角色管理 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../resource/list"> 权限管理 </a></li>
+              </ul>
+            </div>
+          </li>
+         
+          <li class="nav-item"> <a class="nav-link" href="pages/documentation.html"> <i class="menu-icon mdi mdi-scale-bathroom"></i><span class="menu-title">Documentation</span> </a> </li>
+        </ul>
+      </nav>
+		
+		
+<!-- 		 <nav class="sidebar sidebar-offcanvas" id="sidebar"> -->
+<!--         <ul class="nav"> -->
+<!--           <li class="nav-item"> -->
+<!--             <a class="nav-link" href="/"> -->
+<!--               <i class="menu-icon mdi mdi-television"></i> -->
+<!--               <span class="menu-title">首页</span> -->
+<!--             </a> -->
+<!--           </li>          -->
+<!--           <li class="nav-item"> -->
+<!--             <a class="nav-link" href="../user/list"> -->
+<!--               <i class="menu-icon mdi mdi-backup-restore"></i> -->
+<!--               <span class="menu-title">用户管理</span> -->
+<!--             </a> -->
+<!--           </li> -->
+<!--           <li class="nav-item"> -->
+<!--             <a class="nav-link" href="../role/list"> -->
+<!--               <i class="menu-icon mdi mdi-chart-line"></i> -->
+<!--               <span class="menu-title">角色管理</span> -->
+<!--             </a> -->
+<!--           </li> -->
+<!--           <li class="nav-item"> -->
+<!--             <a class="nav-link" href="../../resource/list"> -->
+<!--               <i class="menu-icon mdi mdi-table"></i> -->
+<!--               <span class="menu-title">权限管理</span> -->
+<!--             </a> -->
+<!--           </li> -->
+<!--           <li class="nav-item"> -->
+<!--             <a class="nav-link" href="../../pages/icons/font-awesome.html"> -->
+<!--               <i class="menu-icon mdi mdi-sticker"></i> -->
+<!--               <span class="menu-title">Icons</span> -->
+<!--             </a> -->
+<!--           </li> -->
+<!--           <li class="nav-item"> -->
+<!--             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth"> -->
+<!--               <i class="menu-icon mdi mdi-restart"></i> -->
+<!--               <span class="menu-title">User Pages</span> -->
+<!--               <i class="menu-arrow"></i> -->
+<!--             </a> -->
+           
+<!--           </li> -->
+<!--         </ul> -->
+<!--       </nav> -->
+		
+	</th:block>
+
+</body>
+</html>

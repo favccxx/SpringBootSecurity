@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="header">
+
+	<nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+        <a class="navbar-brand brand-logo" href="index.html"><img th:src="@{/staradmin/images/logo.svg}" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img th:src="@{/staradmin/images/logo-mini.svg}" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-menu"></span>
+        </button>
+        <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Schedule <span class="badge badge-primary ml-1">New</span></a>
+          </li>
+          <li class="nav-item active">
+            <a href="#" class="nav-link"><i class="mdi mdi-elevation-rise"></i>Reports</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><i class="mdi mdi-bookmark-plus-outline"></i>Score</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <i class="mdi mdi-file-document-box"></i>
+              <span class="count">1</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+              <div class="dropdown-item">
+                <p class="mb-0 font-weight-normal float-left">您有一条未读消息
+                </p>
+                <span class="badge badge-info badge-pill float-right">查看所有</span>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img th:src="@{/staradmin/images/faces/face4.jpg}" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">大卫
+                    <span class="float-right font-weight-light small-text">1分钟前</span>
+                  </h6>
+                  <p class="font-weight-light small-text">
+                    	这个系统太棒啦
+                  </p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              
+            </div>
+          </li>
+          
+         
+          <li class="nav-item dropdown d-none d-xl-inline-block">
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <span class="profile-text"><span sec:authentication="name"></span></span><img class="img-xs rounded-circle" th:src="@{/staradmin/images/faces/face1.jpg}" alt="Profile image">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <a class="dropdown-item mt-2">
+                	账户管理
+              </a>
+              <a class="dropdown-item">
+                	修改密码
+              </a>            
+              <a class="dropdown-item">
+                	退出
+              </a>
+            </div>
+          </li>
+        </ul>       
+      </div>
+    </nav>
+
+</th:block>
+</body>
+</html>
